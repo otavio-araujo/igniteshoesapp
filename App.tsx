@@ -14,12 +14,15 @@ import { Loading } from "./src/components/Loading"
 import { CartContextProvider } from "./src/contexts/CartContext"
 
 import { OneSignal } from "react-native-onesignal"
+import { tagUserInfoCreate } from "./src/notifications/notificationTags"
 
 OneSignal.initialize("bdbac3b6-6499-4623-bd52-b94547362af2")
 OneSignal.Notifications.requestPermission(true)
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold })
+
+  tagUserInfoCreate()
 
   return (
     <NativeBaseProvider theme={THEME}>
